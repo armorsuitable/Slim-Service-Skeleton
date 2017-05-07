@@ -1,6 +1,6 @@
 <?php
 /**
- *  Slim-Skeleton 启动文件
+ *  Slim-Skeleton bootstrap
  */
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -22,6 +22,19 @@ $container['view'] = function ($container){
         $container->request->getUri()
     ));
     return $view;
+};
+
+$container['WeChat'] = function() use ($settings){
+    return new \EasyWeChat\Foundation\Application(
+        $settings['settings']['WeChat']);
+};
+
+/**
+ *  处理事件大小写，转换至类名的依赖成员
+ * @return \App\Events\Detection\CamelCase
+ */
+$container['camelCase'] = function(){
+    return new \App\Events\Detection\CamelCase();
 };
 
 /**

@@ -18,7 +18,7 @@
 
 #### 1. 建立Slim 程序的引导文件在 bootstrap 文件夹下  **app.php**
 
-app.php 负责完成composer引导加载所有的依赖库， 初始化Slim\App 容器  **需要注意的是，整个程序仅能定义一个 ``$app`` ** （如果定义其他的同名变量 $app 可能会覆盖）
+app.php 负责完成composer引导加载所有的依赖库， 初始化Slim\App 容器  **需要注意的是，整个程序仅能定义一个 ``$app`` **（如果定义其他的同名变量 $app 可能会覆盖）**
 
 #### 2. 因为 Slim 的核心类 App 是继承于 Pimple 依赖注入容器的，所以可以轻松完成的其他组件的注入。
 
@@ -30,7 +30,7 @@ app.php 负责完成composer引导加载所有的依赖库， 初始化Slim\App 
 
 
 	$app['some_service'] = function () {
-    		return new Service();
+    	return new Service();
 	};
 
 

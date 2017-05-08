@@ -28,18 +28,34 @@ app.php 负责完成composer引导加载所有的依赖库， 初始化Slim\App 
 
 例如：
 
-``
-$app['some_service'] = function () {
-    return new Service();
-};
 
-``
+	$app['some_service'] = function () {
+    	return new Service();
+	};
+
+
  
 要检索服务，请使用：
 
-``
-$service = $app['some_service'];
+
+	$service = $app['some_service'];
    
-``
+
+
+首先调用，创建服务; 然后在任何后续访问中返回相同的实例。
+
+#### 工厂服务
+
+如果要为每个服务访问返回不同的实例，可以使用 factory()方法包装服务定义：
+
+	$app['some_service'] = $app->factory(function () {
+   		return new Service();
+	});
+
+每次调用$app['some_service']时，都会创建一个新的服务实例。
+
+
+**(持续更新)**
 
 Defining services in Slim Skeleton. There is no different than defining parameters. Just set an array key on the container to be a closure. We can  retrieve the service, the closure is executed and up the service creation:
+                           

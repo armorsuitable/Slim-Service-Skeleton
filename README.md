@@ -29,16 +29,16 @@ app.php 负责完成composer引导加载所有的依赖库， 初始化Slim\App 
 例如：
 
 ``
-    $app['some_service'] = function () {
-         return new Service();
-    };
+$app['some_service'] = function () {
+    return new Service();
+};
 
 ``
  
 要检索服务，请使用：
 
 ``
-   $service = $app['some_service'];
+$service = $app['some_service'];
    
 ``
 

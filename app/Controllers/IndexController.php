@@ -6,6 +6,7 @@
 namespace App\Controllers;
 
 use App\Contracts\EventContract;
+use App\User;
 use EasyWeChat\Core\Exceptions\InvalidConfigException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -45,6 +46,10 @@ class IndexController extends Controller
 
     public function index(ServerRequestInterface $request, ResponseInterface $response)
     {
+
+        //$data = $this->db->table('users')->find(1);
+        //$user = User::find(1)->get(['email','nickname','avatar']);
+
         $this->view->render($response,'home.twig');
     }
 }

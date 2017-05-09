@@ -11,6 +11,19 @@ $app = new Slim\App($settings);
 // 获取Slim\App 应用容器
 $container = $app->getContainer();
 
+// 依赖注入 illuminate Eloquent ORM库
+$capsule = new Illuminate\Database\Capsule\Manager;
+// 配置 Eloquent
+$capsule->addConnection($settings['settings']['db']);
+$capsule->setAsGlobal();
+
+// 启动 Eloquent
+$capsule->bootEloquent();
+
+$container['db'] = function($container) use($capsule){
+    return $capsule;
+};
+
 // 注入 Slim\Twig 容器
 $container['view'] = function ($container){
     $view = new \Slim\Views\Twig(__DIR__ . '/../resource/views',[

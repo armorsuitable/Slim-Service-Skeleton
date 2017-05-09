@@ -2,7 +2,8 @@
     "require": {
         "slim/slim": "v3.7",
         "slim/twig-view": "^2.2",
-        "overtrue/wechat": "^3.3"
+        "overtrue/wechat": "^3.3",
+        "illuminate/database": "^5.4"
     },
 
     "autoload" :{

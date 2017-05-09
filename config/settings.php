@@ -12,6 +12,17 @@ return [
         'addContentLengthHeader'            => true,
         'routerCacheFile'                   => false,
 
+        'db'  =>  [
+            'driver'  => 'mysql',
+            'host'    => 'localhost',
+            'database' => 'laravel-blog',
+            'username' => 'root',
+            'password' => 'qwe',
+            'charset'  => 'utf8',
+
+            'collation'  => 'utf8_unicode_ci'
+        ],
+
 
         'WeChat'  => [
 
